@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/demo.css" />
+    <script src="plugin/vue/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <table>
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>班级</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="person in people">
+                    <td>{{person.name}}</td>
+                    <td>{{person.age}}</td>
+                    <td>{{person.className}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var exampleData = {
+            people:[
+                {
+                    name:'张三',
+                    age:25,
+                    className:'A班'
+                },
+                {
+                    name:'李四',
+                    age:28,
+                    className:'B班'
+                },
+                {
+                    name:'王二麻',
+                    age:35,
+                    className:'C班'
+                },
+            ]
+        };
+
+        var vm = new Vue({
+            el:'#app',
+            data:exampleData
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue实例一</title>
+    <script src="plugin/vue/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+        <input type="text" v-model="message" />
+        <h6 v-if="yes">yes!</h6>
+        <h6 v-if="no">no!</h6>
+        <h3 v-else>这是v-else显示的结果</h3>
+        <h6 v-if="age>30">我的年龄是{{age}}!</h6>
+        <h6 v-if="name.indexOf('yaa')>=0 ">我的姓名是{{name}}</h6>
+        <h5 v-show="!yes">yes!</h5>
+        <h5 v-show="!no">no!</h5>
+        <h5 v-show="!age>30">我的年龄是{{age}}!</h5>
+        <h5 v-show="name.indexOf('ya')>=0 ">我的姓名是{{name}}</h5>
+        <h5 v-else>这是v-show后面跟随的v-else</h5>
+    </div>
+</body>
+<script type="text/javascript">
+    var exampleData = {
+        message:'你好，vue！',
+        yes:true,
+        no:false,
+        age:34,
+        name:'yaung'
+    };
+
+    new Vue({
+        el:"#app",
+        data:exampleData
+    });
+</script>
+</html>

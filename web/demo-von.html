@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/demo.css" />
+    <script src="plugin/vue/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul class="pagination">
+        <li v-for="n in pageCount">
+            <a v-on:click="showPage" v-bind:class="activeNum == n ? 'active':''">{{n}}</a>
+        </li>
+    </ul>
+    <br />
+    <!-- v-bind和v-on的缩写 -->
+    <ul class="pagination">
+        <li v-for="n in pageCount">
+            <a @click="showPage2(n)" :class="activeNum == n ? 'active':''">{{n}}</a>
+        </li>
+    </ul>
+</div>
+<script>
+    var exampleData = {
+        activeNum:1,
+        pageCount:10
+    };
+    var vm = new Vue({
+        el:"#app",
+        data:exampleData,
+        methods:{
+            showPage:function(){
+                console.log(this);
+                alert(this.activeNum);
+            },
+            showPage2:function(pageIndex){
+                console.log(this);
+                this.activeNum = pageIndex;
+            }
+        }
+    });
+</script>
+</body>
+</html>
